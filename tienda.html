@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda | Templvm</title>
+    <meta name="description" content="Réplicas, libros y objetos inspirados en la Orden del Temple." />
+    <meta name="theme-color" content="#171310" />
+    <meta property="og:title" content="Tienda | Templvm" />
+    <meta property="og:description" content="Réplicas, libros y objetos inspirados en la Orden del Temple." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbarTemplum" aria-label="Principal">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <svg class="cruz-logo me-2" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+                <path d="M10 0h4v7.2c1.6-1 3.4-1.6 5.4-1.6.6 0 1.2.5 1.2 1.2v3.6c0 .7-.6 1.2-1.2 1.2-2 0-3.8.6-5.4 1.6V24h-4v-10.8c-1.6-1-3.4-1.6-5.4-1.6-.6 0-1.2-.5-1.2-1.2V6.8c0-.7.6-1.2 1.2-1.2 2 0 3.8.6 5.4 1.6V0z"/>
+            </svg>
+            <span>TEMPLVM</span>
+        </a>
+        <div class="nav-acciones d-flex align-items-center gap-2 order-lg-last ms-auto ms-lg-3">
+            <button type="button" class="btn btn-carrito" data-carrito-abrir aria-controls="carrito" aria-expanded="false" aria-label="Carrito">
+                <i class="bi bi-bag" aria-hidden="true"></i>
+                <span class="carrito-contador" data-carrito-contador aria-hidden="true">0</span>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#orden">La Orden</a></li>
+                <li class="nav-item"><a class="nav-link" href="historia.html">Historia</a></li>
+                <li class="nav-item"><a class="nav-link" href="castillos.html">Castillos</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-templo btn-sm px-3" href="tienda.html" aria-current="page">Ir a la tienda</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main id="contenido" tabindex="-1">
+
+<!-- ===== CABECERA DE PÁGINA ===== -->
+<header class="header-pagina">
+    <div class="cruz-marca-agua" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 0h4v7.2c1.6-1 3.4-1.6 5.4-1.6.6 0 1.2.5 1.2 1.2v3.6c0 .7-.6 1.2-1.2 1.2-2 0-3.8.6-5.4 1.6V24h-4v-10.8c-1.6-1-3.4-1.6-5.4-1.6-.6 0-1.2-.5-1.2-1.2V6.8c0-.7.6-1.2 1.2-1.2 2 0 3.8.6 5.4 1.6V0z"/></svg>
+    </div>
+    <div class="container text-center">
+        <span class="badge rounded-pill badge-templo mb-3">Tienda de la Orden</span>
+        <h1 class="display-5 mb-3">Reliquias y objetos templarios</h1>
+        <p class="lead text-pergamino-suave mb-0">
+            Réplicas, libros y piezas inspiradas en casi dos siglos de historia.
+        </p>
+    </div>
+</header>
+
+<!-- ===== CATÁLOGO =====
+     Cada botón "Agregar" lleva data-agregar con el id del producto en js/carrito.js.
+     Empiezan deshabilitados: el script los activa cuando el carrito está listo. -->
+<section class="py-5 py-lg-6" aria-labelledby="tituloCatalogo">
+    <div class="container py-4">
+        <h2 id="tituloCatalogo" class="visually-hidden">Catálogo</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+
+            <div class="col">
+                <article class="card h-100 border-0 tarjeta-producto">
+                    <div class="producto-banner" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="44" height="44" fill="currentColor">
+                            <path d="M10 0h4v7.2c1.6-1 3.4-1.6 5.4-1.6.6 0 1.2.5 1.2 1.2v3.6c0 .7-.6 1.2-1.2 1.2-2 0-3.8.6-5.4 1.6V24h-4v-10.8c-1.6-1-3.4-1.6-5.4-1.6-.6 0-1.2-.5-1.2-1.2V6.8c0-.7.6-1.2 1.2-1.2 2 0 3.8.6 5.4 1.6V0z"/>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <span class="badge badge-categoria mb-2">Joyería</span>
+                        <h3 class="h5 card-title">Cruz templaria en plata</h3>
+                        <p class="card-text text-secondary">Colgante de plata 925 con la cruz pattée, cadena de 50 cm incluida.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-semibold fs-5 precio">$89.000</span>
+                            <button type="button" class="btn btn-outline-templo btn-sm btn-agregar" data-agregar="cruz-plata" disabled>
+                                <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar<span class="visually-hidden"> Cruz templaria en plata al carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 border-0 tarjeta-producto">
+                    <div class="producto-banner" aria-hidden="true"><i class="bi bi-shield-fill"></i></div>
+                    <div class="card-body">
+                        <span class="badge badge-categoria mb-2">Réplicas</span>
+                        <h3 class="h5 card-title">Escudo heráldico templario</h3>
+                        <p class="card-text text-secondary">Réplica decorativa en metal repujado, 35 cm de diámetro, lista para colgar.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-semibold fs-5 precio">$145.000</span>
+                            <button type="button" class="btn btn-outline-templo btn-sm btn-agregar" data-agregar="escudo-heraldico" disabled>
+                                <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar<span class="visually-hidden"> Escudo heráldico templario al carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 border-0 tarjeta-producto">
+                    <div class="producto-banner" aria-hidden="true"><i class="bi bi-book-half"></i></div>
+                    <div class="card-body">
+                        <span class="badge badge-categoria mb-2">Libros</span>
+                        <h3 class="h5 card-title">Historia de la Orden del Temple</h3>
+                        <p class="card-text text-secondary">Tapa dura, 320 páginas, con mapas y cronología detallada de la Orden.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-semibold fs-5 precio">$52.000</span>
+                            <button type="button" class="btn btn-outline-templo btn-sm btn-agregar" data-agregar="libro-historia" disabled>
+                                <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar<span class="visually-hidden"> Historia de la Orden del Temple al carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 border-0 tarjeta-producto">
+                    <div class="producto-banner" aria-hidden="true"><i class="bi bi-map-fill"></i></div>
+                    <div class="card-body">
+                        <span class="badge badge-categoria mb-2">Decoración</span>
+                        <h3 class="h5 card-title">Mapa de fortalezas templarias</h3>
+                        <p class="card-text text-secondary">Póster ilustrado de 60x90 cm con las principales fortalezas de la Orden en Europa.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-semibold fs-5 precio">$38.000</span>
+                            <button type="button" class="btn btn-outline-templo btn-sm btn-agregar" data-agregar="mapa-fortalezas" disabled>
+                                <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar<span class="visually-hidden"> Mapa de fortalezas templarias al carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 border-0 tarjeta-producto">
+                    <div class="producto-banner" aria-hidden="true"><i class="bi bi-gem"></i></div>
+                    <div class="card-body">
+                        <span class="badge badge-categoria mb-2">Joyería</span>
+                        <h3 class="h5 card-title">Anillo sello templario</h3>
+                        <p class="card-text text-secondary">Anillo de plata con sello grabado, disponible en varias tallas.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-semibold fs-5 precio">$76.000</span>
+                            <button type="button" class="btn btn-outline-templo btn-sm btn-agregar" data-agregar="anillo-sello" disabled>
+                                <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar<span class="visually-hidden"> Anillo sello templario al carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 border-0 tarjeta-producto">
+                    <div class="producto-banner" aria-hidden="true"><i class="bi bi-key-fill"></i></div>
+                    <div class="card-body">
+                        <span class="badge badge-categoria mb-2">Decoración</span>
+                        <h3 class="h5 card-title">Llave de la logia</h3>
+                        <p class="card-text text-secondary">Llavero réplica en bronce envejecido, inspirado en las llaves de las encomiendas templarias.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-semibold fs-5 precio">$29.000</span>
+                            <button type="button" class="btn btn-outline-templo btn-sm btn-agregar" data-agregar="llave-logia" disabled>
+                                <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar<span class="visually-hidden"> Llave de la logia al carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA hacia historia ===== -->
+<section class="py-5 bg-pergamino text-center">
+    <div class="container py-3">
+        <h2 class="h3 mb-3">¿Quieres conocer su origen?</h2>
+        <p class="text-secondary mb-4">Descubre la historia completa detrás de cada pieza.</p>
+        <a href="historia.html" class="btn btn-templo btn-lg px-4">Ver la historia</a>
+    </div>
+</section>
+
+</main>
+
+<!-- ===== PIE DE PÁGINA ===== -->
+<footer class="footer-templo">
+    <div class="container">
+        <div class="footer-fila">
+            <a class="footer-marca" href="index.html">
+                <svg class="cruz-logo" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                    <path d="M10 0h4v7.2c1.6-1 3.4-1.6 5.4-1.6.6 0 1.2.5 1.2 1.2v3.6c0 .7-.6 1.2-1.2 1.2-2 0-3.8.6-5.4 1.6V24h-4v-10.8c-1.6-1-3.4-1.6-5.4-1.6-.6 0-1.2-.5-1.2-1.2V6.8c0-.7.6-1.2 1.2-1.2 2 0 3.8.6 5.4 1.6V0z"/>
+                </svg>
+                <span>TEMPLVM</span>
+            </a>
+            <nav aria-label="Pie de página">
+                <ul class="footer-enlaces">
+                    <li><a href="index.html#orden">La Orden</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="castillos.html">Castillos</a></li>
+                    <li><a href="tienda.html" aria-current="page">Tienda</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p class="footer-nota">Proyecto académico. Las imágenes son de terceros y se usan con fines educativos. La tienda es una demostración: no procesa pagos ni pide datos de tarjeta.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script defer src="js/menu.js"></script>
+<script defer src="js/carrito.js"></script>
+</body>
+</html>

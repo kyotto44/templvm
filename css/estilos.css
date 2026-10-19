@@ -1,0 +1,1019 @@
+/* ==========================================================
+   Templvm — variables de marca
+   ========================================================== */
+:root {
+  --tpl-negro: #171310;
+  --tpl-piedra: #2c2620;
+  --tpl-rojo: #7a1f1f;
+  --tpl-rojo-vivo: #9c2b2b;
+  --tpl-oro: #c9a227;
+  --tpl-pergamino: #efe4c8;
+  --tpl-pergamino-suave: #f7f1e1;
+
+  --bs-primary: var(--tpl-rojo);
+  --bs-primary-rgb: 122, 31, 31;
+  --bs-body-font-family: "EB Garamond", Georgia, serif;
+  --bs-link-color: var(--tpl-oro);
+  --bs-link-hover-color: var(--tpl-rojo-vivo);
+
+  /* Movimiento: salida rápida y suave para la interfaz */
+  --tpl-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  /* Altura de la barra fija, para que los anclajes (#orden) no queden tapados */
+  --tpl-alto-nav: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--tpl-alto-nav);
+}
+
+body {
+  color: var(--tpl-negro);
+  font-size: 1.15rem;
+}
+
+h1, h2, h3,
+.navbar-brand span {
+  font-family: "Cinzel", Georgia, serif;
+  letter-spacing: 0.02em;
+}
+
+h1, h2 {
+  text-wrap: balance;
+}
+
+.text-pergamino-suave {
+  color: var(--tpl-pergamino-suave);
+}
+
+::selection {
+  background-color: rgba(201, 162, 39, 0.35);
+}
+
+/* ==========================================================
+   Accesibilidad: salto al contenido y foco visible
+   ========================================================== */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1100;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--tpl-oro);
+  color: var(--tpl-negro);
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transform: translateY(-160%);
+  transition: transform 0.2s var(--tpl-ease-out);
+}
+.skip-link:focus {
+  transform: translateY(0);
+  color: var(--tpl-negro);
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Anillo de foco de la marca: rojo sobre fondos claros, oro sobre fondos oscuros */
+:focus-visible {
+  outline: 2px solid var(--tpl-rojo);
+  outline-offset: 3px;
+}
+.btn:focus-visible,
+.btn-close:focus-visible,
+.navbar-toggler:focus-visible,
+.accordion-button:focus-visible {
+  outline: 2px solid var(--tpl-rojo);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+#navbarTemplum :focus-visible,
+.hero :focus-visible,
+.header-pagina :focus-visible,
+.footer-templo :focus-visible,
+.offcanvas-carrito .offcanvas-header :focus-visible,
+.toast-carrito :focus-visible,
+.skip-link:focus-visible {
+  outline-color: var(--tpl-oro);
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* ==========================================================
+   Botones propios
+   (se definen con las variables de Bootstrap para que hover,
+   foco, presionado y deshabilitado conserven los colores)
+   ========================================================== */
+.btn-templo {
+  --bs-btn-color: var(--tpl-pergamino-suave);
+  --bs-btn-bg: var(--tpl-rojo);
+  --bs-btn-border-color: var(--tpl-rojo);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--tpl-rojo-vivo);
+  --bs-btn-hover-border-color: var(--tpl-rojo-vivo);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--tpl-rojo);
+  --bs-btn-active-border-color: var(--tpl-rojo);
+  --bs-btn-disabled-color: var(--tpl-pergamino-suave);
+  --bs-btn-disabled-bg: var(--tpl-rojo);
+  --bs-btn-disabled-border-color: var(--tpl-rojo);
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.btn-templo[aria-current="page"] {
+  box-shadow: inset 0 0 0 1px var(--tpl-oro);
+}
+
+.btn-outline-templo {
+  --bs-btn-color: var(--tpl-oro);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--tpl-oro);
+  --bs-btn-hover-color: var(--tpl-negro);
+  --bs-btn-hover-bg: var(--tpl-oro);
+  --bs-btn-hover-border-color: var(--tpl-oro);
+  --bs-btn-active-color: var(--tpl-negro);
+  --bs-btn-active-bg: var(--tpl-oro);
+  --bs-btn-active-border-color: var(--tpl-oro);
+  --bs-btn-disabled-color: var(--tpl-oro);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--tpl-oro);
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* Respuesta al presionar: el botón "se hunde" un poco */
+.btn {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease,
+              transform 0.16s var(--tpl-ease-out);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================
+   Navbar
+   ========================================================== */
+#navbarTemplum {
+  background-color: var(--tpl-negro);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+#navbarTemplum .nav-link {
+  color: rgba(239, 228, 200, 0.85);
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+#navbarTemplum .nav-link:hover {
+  color: var(--tpl-oro);
+}
+/* Página actual: oro con subrayado fino */
+#navbarTemplum .nav-link.active,
+#navbarTemplum .nav-link[aria-current="page"] {
+  color: var(--tpl-oro);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.5em;
+}
+.cruz-logo {
+  color: var(--tpl-oro);
+}
+.navbar-brand span {
+  color: var(--tpl-pergamino-suave);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Botón del carrito (visible en todas las páginas, también con el menú cerrado) */
+.btn-carrito {
+  --bs-btn-color: var(--tpl-pergamino);
+  --bs-btn-hover-color: var(--tpl-oro);
+  --bs-btn-active-color: var(--tpl-oro);
+  --bs-btn-border-color: rgba(239, 228, 200, 0.25);
+  --bs-btn-hover-border-color: var(--tpl-oro);
+  --bs-btn-active-border-color: var(--tpl-oro);
+  --bs-btn-bg: transparent;
+  --bs-btn-hover-bg: rgba(201, 162, 39, 0.1);
+  --bs-btn-active-bg: rgba(201, 162, 39, 0.15);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 1.15rem;
+}
+@media (pointer: coarse) {
+  .btn-carrito {
+    width: 44px;
+    height: 44px;
+  }
+}
+.carrito-contador {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  background-color: var(--tpl-piedra);
+  border: 1px solid rgba(239, 228, 200, 0.35);
+  color: var(--tpl-pergamino);
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: calc(1.35rem - 2px);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.carrito-contador.tiene-piezas {
+  background-color: var(--tpl-oro);
+  border-color: var(--tpl-oro);
+  color: var(--tpl-negro);
+}
+
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    min-height: 44px;
+  }
+  #navbarTemplum .navbar-nav .nav-link {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+  #navbarTemplum .navbar-nav .btn-templo {
+    margin-top: 0.5rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ==========================================================
+   Hero
+   ========================================================== */
+
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 90px;
+    position: relative;
+    overflow: hidden;
+    background:
+            radial-gradient(circle at 50% 0%, rgba(122, 31, 31, 0.45), transparent 55%),
+            linear-gradient(180deg, rgba(23, 19, 16, 0.88) 0%, rgb(179 170 168 / 0.92) 100%),
+            url("../img/hero.webp");
+    background-size: cover;
+    background-position: center;
+    color: var(--tpl-pergamino-suave);
+  }
+
+.hero-titulo {
+  color: var(--tpl-pergamino);
+}
+
+/* Sobre la parte clara del hero, el párrafo quedaba por debajo de 4.5:1 de contraste:
+   un halo oscuro muy suave detrás de las letras lo resuelve sin cambiar el color */
+.hero .lead {
+  text-shadow: 0 1px 12px rgba(23, 19, 16, 0.55);
+}
+/* El distintivo dorado también se perdía sobre la imagen (2.5:1): fondo oscuro translúcido */
+.hero .badge-templo {
+  background-color: rgba(23, 19, 16, 0.6);
+}
+
+/* "Ver los castillos": el contorno dorado se perdía sobre la imagen.
+   Se le da un fondo oscuro translúcido; el hover sigue siendo oro sólido. */
+.hero .btn-outline-templo {
+  --bs-btn-bg: rgba(23, 19, 16, 0.72);
+  --bs-btn-disabled-bg: rgba(23, 19, 16, 0.72);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.badge-templo {
+  background-color: rgba(201, 162, 39, 0.15);
+  color: var(--tpl-oro);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  padding: 0.5em 1em;
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cruz-marca-agua {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70vh;
+  height: 70vh;
+  transform: translate(-50%, -50%);
+  color: var(--tpl-rojo);
+  opacity: 0.06;
+  pointer-events: none;
+}
+.cruz-marca-agua svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================
+   Cabecera de páginas internas (historia, castillos, tienda, 404)
+   ========================================================== */
+.header-pagina {
+  position: relative;
+  overflow: hidden;
+  padding-top: 140px;
+  padding-bottom: 60px;
+  background:
+          radial-gradient(circle at 50% 0%, rgba(122, 31, 31, 0.35), transparent 55%),
+          linear-gradient(180deg, var(--tpl-negro) 0%, var(--tpl-piedra) 100%);
+  color: var(--tpl-pergamino-suave);
+}
+.header-pagina h1 {
+  color: var(--tpl-pergamino);
+}
+.header-pagina .container {
+  position: relative;
+}
+
+/* ==========================================================
+   Página 404
+   ========================================================== */
+.pagina-404 {
+  min-height: 78vh;
+  min-height: 78svh;
+  display: flex;
+  align-items: center;
+  padding-bottom: 80px;
+}
+.pagina-404 .lead {
+  max-width: 34rem;
+  margin-inline: auto;
+}
+.enlaces-404 {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.5rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+}
+.enlaces-404 a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--tpl-pergamino);
+  text-decoration-color: rgba(201, 162, 39, 0.6);
+  text-underline-offset: 0.3em;
+}
+.enlaces-404 a:hover {
+  color: var(--tpl-oro);
+}
+
+/* ==========================================================
+   Texto de apertura de sección ("eyebrow")
+   ========================================================== */
+.eyebrow-templo {
+  color: var(--tpl-rojo);
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.bg-pergamino {
+  background-color: var(--tpl-pergamino);
+}
+
+/* ==========================================================
+   La Orden — tarjetas de pilares
+   ========================================================== */
+.tarjeta-pilar {
+  background-color: var(--tpl-pergamino);
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pilar-icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(122, 31, 31, 0.1);
+  color: var(--tpl-rojo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* ==========================================================
+   Historia — acordeón
+   ========================================================== */
+.accordion {
+  /* Flecha clara cuando el paso está abierto (la de Bootstrap es azul oscuro y no se veía sobre el rojo) */
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23f7f1e1' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+.accordion-button {
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  background-color: #fff;
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--tpl-rojo);
+  color: var(--tpl-pergamino-suave);
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.accordion-button:focus-visible {
+  outline-offset: -4px;
+}
+.accordion-button:not(.collapsed):focus-visible {
+  outline-color: var(--tpl-oro);
+}
+
+/* ==========================================================
+   Castillos — tarjetas
+   ========================================================== */
+.tarjeta-castillo {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(23, 19, 16, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.castillo-banner {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--tpl-piedra) 0%, var(--tpl-negro) 100%);
+}
+.castillo-banner span {
+  font-size: 3.5rem;
+  color: var(--tpl-oro);
+  line-height: 1;
+}
+/* La foto llena el recuadro 16:9 sin deformarse, sea cual sea su tamaño original */
+.castillo-foto {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Créditos de las fotos: el oro no se lee sobre blanco, los enlaces van en rojo */
+.creditos-fotos a {
+  color: var(--tpl-rojo);
+}
+.creditos-fotos a:hover {
+  color: var(--tpl-rojo-vivo);
+}
+
+.badge-pais,
+.badge-categoria {
+  background-color: rgba(122, 31, 31, 0.1);
+  color: var(--tpl-rojo);
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   Tienda — tarjetas de producto
+   ========================================================== */
+.tarjeta-producto {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(23, 19, 16, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-banner {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--tpl-pergamino) 0%, #e4d5ae 100%);
+  color: var(--tpl-rojo);
+  font-size: 2.75rem;
+}
+
+.precio {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* Sobre fondo blanco el texto dorado no se leía: se usa piedra con borde dorado */
+.tarjeta-producto .btn-outline-templo {
+  --bs-btn-color: var(--tpl-piedra);
+  --bs-btn-disabled-color: var(--tpl-piedra);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Elevación de tarjetas solo en dispositivos con mouse (en táctil el hover se queda "pegado") */
+@media (hover: hover) and (pointer: fine) {
+  .tarjeta-pilar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(23, 19, 16, 0.12);
+  }
+  .tarjeta-castillo:hover,
+  .tarjeta-producto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(23, 19, 16, 0.14);
+  }
+}
+
+/* En pantallas táctiles el hover se queda "pegado" después de tocar: el botón dorado
+   vuelve a su estado normal y solo se rellena mientras se presiona */
+@media (hover: none) {
+  .btn-outline-templo {
+    --bs-btn-hover-color: var(--bs-btn-color);
+    --bs-btn-hover-bg: var(--bs-btn-bg);
+    --bs-btn-hover-border-color: var(--bs-btn-border-color);
+  }
+}
+
+/* Objetivos táctiles de al menos 44px */
+@media (pointer: coarse) {
+  .tarjeta-producto .btn-agregar {
+    min-height: 44px;
+    padding-inline: 1rem;
+  }
+}
+
+/* ==========================================================
+   Pie de página
+   ========================================================== */
+.footer-templo {
+  background-color: var(--tpl-negro);
+  color: rgba(239, 228, 200, 0.75);
+  padding: 2.5rem 0 2rem;
+}
+.footer-fila {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  color: var(--tpl-pergamino-suave);
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.footer-marca:hover {
+  color: var(--tpl-oro);
+}
+.footer-enlaces {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+.footer-enlaces a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: rgba(239, 228, 200, 0.85);
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.footer-enlaces a:hover,
+.footer-enlaces a[aria-current="page"] {
+  color: var(--tpl-oro);
+}
+.footer-nota {
+  margin: 1.25rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(239, 228, 200, 0.12);
+  font-size: 0.95rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .footer-fila {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .footer-nota {
+    text-align: left;
+  }
+}
+
+/* ==========================================================
+   Carrito — panel lateral (offcanvas de Bootstrap)
+   ========================================================== */
+.offcanvas-carrito {
+  --bs-offcanvas-width: 420px;
+  --bs-offcanvas-bg: var(--tpl-pergamino-suave);
+  --bs-offcanvas-color: var(--tpl-negro);
+  --bs-offcanvas-padding-x: 1.25rem;
+  /* Bootstrap entra con ease-in-out; para un panel que aparece, ease-out se siente más rápido */
+  transition: transform 0.32s var(--tpl-ease-out), visibility 0.32s;
+}
+.offcanvas-carrito .offcanvas-header {
+  background-color: var(--tpl-negro);
+  color: var(--tpl-pergamino);
+}
+.offcanvas-carrito .offcanvas-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--tpl-pergamino);
+}
+.offcanvas-carrito .offcanvas-title .bi {
+  color: var(--tpl-oro);
+}
+.offcanvas-carrito .btn-close {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.75rem;
+}
+
+.carrito-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.carrito-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0.85rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(44, 38, 32, 0.12);
+}
+.carrito-item:first-child {
+  padding-top: 0.25rem;
+}
+.carrito-item-icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--tpl-pergamino) 0%, #e4d5ae 100%);
+  color: var(--tpl-rojo);
+  font-size: 1.5rem;
+}
+.carrito-item-icono svg {
+  width: 26px;
+  height: 26px;
+}
+.carrito-item-info {
+  min-width: 0;
+}
+.carrito-item-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.carrito-item-nombre {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+.carrito-item-subtotal {
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.carrito-item-precio {
+  margin: 0.1rem 0 0.5rem;
+  font-size: 1rem;
+  color: #5c534a;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.carrito-item-controles {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+}
+
+/* Selector de cantidad: [ − ] 2 [ + ] */
+.carrito-cantidad {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(44, 38, 32, 0.25);
+  border-radius: 0.375rem;
+  background-color: #fff;
+}
+.btn-cantidad {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--tpl-rojo);
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  transition: background-color 0.15s ease, transform 0.16s var(--tpl-ease-out);
+}
+.btn-cantidad:hover:not([aria-disabled="true"]) {
+  background-color: rgba(122, 31, 31, 0.08);
+}
+.btn-cantidad:active:not([aria-disabled="true"]) {
+  transform: scale(0.92);
+}
+/* aria-disabled (y no disabled) para que el foco del teclado no se pierda al llegar al mínimo o al máximo */
+.btn-cantidad[aria-disabled="true"] {
+  color: rgba(44, 38, 32, 0.35);
+  cursor: not-allowed;
+}
+.carrito-cantidad-valor {
+  min-width: 2rem;
+  text-align: center;
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.btn-quitar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 40px;
+  padding: 0 0.5rem;
+  border: 0;
+  background: transparent;
+  color: #5c534a;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(92, 83, 74, 0.4);
+  text-underline-offset: 0.25em;
+  border-radius: 0.375rem;
+}
+.btn-quitar:hover {
+  color: var(--tpl-rojo);
+  text-decoration-color: currentColor;
+}
+
+@media (pointer: coarse) {
+  .btn-cantidad {
+    width: 44px;
+    height: 44px;
+  }
+  .btn-quitar {
+    min-height: 44px;
+  }
+}
+
+.carrito-aviso-limite {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: var(--tpl-rojo);
+}
+
+/* Pie del panel: totales y finalizar compra */
+.carrito-pie {
+  padding: 1rem 1.25rem 1.25rem;
+  border-top: 1px solid rgba(44, 38, 32, 0.15);
+  background-color: var(--tpl-pergamino);
+}
+.carrito-totales {
+  margin: 0 0 0.75rem;
+}
+.carrito-totales > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.15rem 0;
+}
+.carrito-totales dt {
+  font-weight: 400;
+}
+.carrito-totales dd {
+  margin: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.carrito-totales .carrito-total {
+  margin-top: 0.35rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(44, 38, 32, 0.15);
+  font-size: 1.25rem;
+}
+.carrito-totales .carrito-total dt {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  align-self: center;
+}
+.carrito-totales .carrito-total dd {
+  font-weight: 600;
+}
+.carrito-aviso {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: #4a4139;
+}
+.carrito-aviso .bi {
+  color: var(--tpl-rojo);
+  margin-top: 0.1rem;
+}
+.carrito-pie .btn-templo {
+  min-height: 48px;
+}
+.carrito-pie .btn-templo[aria-disabled="true"] {
+  cursor: progress;
+}
+
+/* Estado vacío */
+.carrito-vacio,
+.carrito-confirmacion {
+  text-align: center;
+  padding: 2.5rem 0.5rem 1rem;
+}
+.carrito-vacio-icono,
+.carrito-confirmacion-icono {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(122, 31, 31, 0.1);
+  color: var(--tpl-rojo);
+  font-size: 2rem;
+}
+.carrito-vacio-icono svg {
+  width: 30px;
+  height: 30px;
+}
+.carrito-vacio-titulo,
+.carrito-confirmacion-titulo {
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.carrito-vacio p,
+.carrito-confirmacion p {
+  color: #4a4139;
+  max-width: 30ch;
+  margin-inline: auto;
+}
+.carrito-vacio .btn,
+.carrito-confirmacion .btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.carrito-confirmacion-titulo:focus {
+  outline: none;
+}
+
+/* Confirmación del pedido de demostración */
+.carrito-confirmacion-icono {
+  background-color: rgba(201, 162, 39, 0.2);
+  color: #7a5f0d;
+}
+.carrito-resumen {
+  list-style: none;
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(44, 38, 32, 0.15);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  text-align: left;
+  font-size: 1rem;
+}
+.carrito-resumen li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.2rem 0;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.carrito-resumen .carrito-resumen-total {
+  margin-top: 0.35rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(44, 38, 32, 0.15);
+  font-weight: 600;
+}
+
+/* ==========================================================
+   Aviso flotante (toast) al agregar un producto
+   ========================================================== */
+.toast-carrito-contenedor {
+  z-index: 1090;
+}
+.toast-carrito {
+  --bs-toast-bg: var(--tpl-negro);
+  --bs-toast-color: var(--tpl-pergamino);
+  --bs-toast-border-color: rgba(201, 162, 39, 0.45);
+  --bs-toast-max-width: 380px;
+  --bs-toast-font-size: 1rem;
+  box-shadow: 0 12px 28px rgba(23, 19, 16, 0.35);
+}
+.toast-carrito .toast-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.35;
+}
+.toast-carrito .toast-body .bi {
+  color: var(--tpl-oro);
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+.toast-carrito .toast-acciones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem 0.75rem;
+}
+.toast-carrito .btn-outline-templo {
+  min-height: 40px;
+}
+.toast-carrito .btn-close {
+  padding: 0.8rem;
+}
+@media (max-width: 575.98px) {
+  .toast-carrito-contenedor {
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+  .toast-carrito {
+    --bs-toast-max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* ==========================================================
+   Movimiento reducido: sin desplazamientos, solo cambios de color/opacidad
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .offcanvas-carrito {
+    transition: none;
+  }
+  .btn,
+  .btn-cantidad,
+  .skip-link {
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:active,
+  .btn-cantidad:active:not([aria-disabled="true"]) {
+    transform: none;
+  }
+  .tarjeta-pilar,
+  .tarjeta-castillo,
+  .tarjeta-producto {
+    transition: box-shadow 0.2s ease;
+  }
+  .tarjeta-pilar:hover,
+  .tarjeta-castillo:hover,
+  .tarjeta-producto:hover {
+    transform: none;
+  }
+}

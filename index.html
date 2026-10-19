@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Templvm — Historia, castillos y reliquias de la Orden</title>
+  <meta name="description" content="Descubre la historia de los Caballeros Templarios, sus castillos y una tienda de piezas y réplicas de la Orden." />
+  <meta name="theme-color" content="#171310" />
+  <meta property="og:title" content="Templvm — Historia, castillos y reliquias de la Orden" />
+  <meta property="og:description" content="La historia de los Caballeros Templarios, sus castillos y una tienda de piezas y réplicas de la Orden." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Imagen del hero: se pide de primera para que la portada cargue rápido -->
+  <link rel="preload" as="image" href="img/hero.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Fuentes: Cinzel para títulos (estilo romano/medieval), EB Garamond para texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbarTemplum" aria-label="Principal">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#inicio">
+      <svg class="cruz-logo me-2" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+        <path d="M10 0h4v7.2c1.6-1 3.4-1.6 5.4-1.6.6 0 1.2.5 1.2 1.2v3.6c0 .7-.6 1.2-1.2 1.2-2 0-3.8.6-5.4 1.6V24h-4v-10.8c-1.6-1-3.4-1.6-5.4-1.6-.6 0-1.2-.5-1.2-1.2V6.8c0-.7.6-1.2 1.2-1.2 2 0 3.8.6 5.4 1.6V0z"/>
+      </svg>
+      <span>TEMPLVM</span>
+    </a>
+    <div class="nav-acciones d-flex align-items-center gap-2 order-lg-last ms-auto ms-lg-3">
+      <button type="button" class="btn btn-carrito" data-carrito-abrir aria-controls="carrito" aria-expanded="false" aria-label="Carrito">
+        <i class="bi bi-bag" aria-hidden="true"></i>
+        <span class="carrito-contador" data-carrito-contador aria-hidden="true">0</span>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#orden">La Orden</a></li>
+        <li class="nav-item"><a class="nav-link" href="historia.html">Historia</a></li>
+        <li class="nav-item"><a class="nav-link" href="castillos.html">Castillos</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-templo btn-sm px-3" href="tienda.html">Ir a la tienda</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="contenido" tabindex="-1">
+
+<!-- ===== HERO ===== -->
+<header id="inicio" class="hero d-flex align-items-center">
+  <div class="cruz-marca-agua" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 0h4v7.2c1.6-1 3.4-1.6 5.4-1.6.6 0 1.2.5 1.2 1.2v3.6c0 .7-.6 1.2-1.2 1.2-2 0-3.8.6-5.4 1.6V24h-4v-10.8c-1.6-1-3.4-1.6-5.4-1.6-.6 0-1.2-.5-1.2-1.2V6.8c0-.7.6-1.2 1.2-1.2 2 0 3.8.6 5.4 1.6V0z"/></svg>
+  </div>
+  <div class="container py-5">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <span class="badge rounded-pill badge-templo mb-3">Orden del Temple · Fundada en 1119</span>
+        <h1 class="display-4 hero-titulo mb-3">
+          TEMPLVM
+        </h1>
+        <p class="lead text-pergamino-suave mb-4">
+          Explora la
+          historia de la Orden, recorre sus castillos y llévate una
+          pieza de su legado.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+
+          <a href="historia.html" class="btn btn-templo btn-lg px-4">Conocer su historia</a>
+          <a href="castillos.html" class="btn btn-outline-templo btn-lg px-4">Ver los castillos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== LA ORDEN (pilares/valores) ===== -->
+<section id="orden" class="py-5 py-lg-6">
+  <div class="container py-4">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-7">
+        <span class="eyebrow-templo">La Orden</span>
+        <h2 class="mt-2">Cuatro pilares sostienen la Regla templaria</h2>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <div class="col">
+        <div class="card h-100 border-0 tarjeta-pilar text-center p-4">
+          <div class="pilar-icono mx-auto mb-3" aria-hidden="true"><i class="bi bi-brightness-high"></i></div>
+          <h3 class="h5">Fe</h3>
+          <p class="text-secondary mb-0">Monjes y guerreros a la vez, regidos por votos religiosos tan estrictos como los de cualquier monasterio.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 tarjeta-pilar text-center p-4">
+          <div class="pilar-icono mx-auto mb-3" aria-hidden="true"><i class="bi bi-shield-fill"></i></div>
+          <h3 class="h5">Disciplina</h3>
+          <p class="text-secondary mb-0">La Regla, redactada en el Concilio de Troyes, ordenaba cada hora del día: oración, entrenamiento y descanso.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 tarjeta-pilar text-center p-4">
+          <div class="pilar-icono mx-auto mb-3" aria-hidden="true"><i class="bi bi-signpost-2-fill"></i></div>
+          <h3 class="h5">Protección de peregrinos</h3>
+          <p class="text-secondary mb-0">Su misión fundacional: escoltar a los peregrinos cristianos en el camino a Jerusalén.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 tarjeta-pilar text-center p-4">
+          <div class="pilar-icono mx-auto mb-3" aria-hidden="true"><i class="bi bi-droplet-fill"></i></div>
+          <h3 class="h5">Voto de pobreza</h3>
+          <p class="text-secondary mb-0">Pese a administrar una de las mayores fortunas de Europa, cada caballero vivía sin bienes propios.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== PIE DE PÁGINA ===== -->
+<footer class="footer-templo">
+  <div class="container">
+    <div class="footer-fila">
+      <a class="footer-marca" href="index.html">
+        <svg class="cruz-logo" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+          <path d="M10 0h4v7.2c1.6-1 3.4-1.6 5.4-1.6.6 0 1.2.5 1.2 1.2v3.6c0 .7-.6 1.2-1.2 1.2-2 0-3.8.6-5.4 1.6V24h-4v-10.8c-1.6-1-3.4-1.6-5.4-1.6-.6 0-1.2-.5-1.2-1.2V6.8c0-.7.6-1.2 1.2-1.2 2 0 3.8.6 5.4 1.6V0z"/>
+        </svg>
+        <span>TEMPLVM</span>
+      </a>
+      <nav aria-label="Pie de página">
+        <ul class="footer-enlaces">
+          <li><a href="index.html#orden">La Orden</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="castillos.html">Castillos</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-nota">Proyecto académico. Las imágenes son de terceros y se usan con fines educativos. La tienda es una demostración: no procesa pagos ni pide datos de tarjeta.</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS (necesario para el menú hamburguesa, el panel del carrito y los avisos) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script defer src="js/menu.js"></script>
+<script defer src="js/carrito.js"></script>
+</body>
+</html>
