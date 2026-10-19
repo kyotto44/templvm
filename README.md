@@ -2,6 +2,8 @@
 
 Sitio web sobre la Orden del Temple: su historia, sus castillos y una tienda de réplicas y objetos inspirados en la Orden. Empezó como laboratorio de la materia Construcción de Software (Ingeniería de Sistemas, Universidad Santo Tomás, Tunja) y se terminó como proyecto de portafolio.
 
+**Sitio publicado:** https://templvm-kyotto44.netlify.app
+
 <p>
   <img src="docs/captura-escritorio.webp" alt="Portada de Templvm en escritorio: barra de navegación oscura y portada con caballeros templarios" width="600">
   <img src="docs/captura-movil.webp" alt="Portada de Templvm en un celular" width="180">
